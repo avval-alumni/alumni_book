@@ -1,0 +1,122 @@
+@import 'colors';
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  main {
+    height: 100%;
+    .mat-drawer-container.mat-sidenav-container{
+      height: 100%;
+      .mat-drawer-content.mat-sidenav-content {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: relative;
+        z-index: 1;
+        display: block;
+        height: 100%;
+        overflow: auto;
+        min-height: 100%;
+      }
+
+      .mat-drawer-content.mat-sidenav-content.loggedIn {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: @grey;
+}
+
+.home {
+  .logo {
+    img{
+      height: 50px;
+      vertical-align: bottom;
+    }
+    vertical-align: bottom;
+  }
+  .app_name {
+    font-weight: lighter;
+    color: #fff;
+    letter-spacing: 0.05rem;
+  }
+}
+
+.mat-toolbar {
+  background-color: @darkblue;
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+.mat-toolbar.logout {
+  display: none;
+}
+
+.user_settings {
+  cursor: pointer;
+
+  label {
+    font-size: 0.8em;
+    font-weight: lighter;
+    padding-right: 10px;
+    cursor: pointer;
+  }
+  i {
+    vertical-align: middle;
+    cursor: pointer;
+  }
+}
+
+.logout_button {
+  cursor: pointer;
+}
+
+.docs-component-viewer-sidenav {
+  padding-bottom: 72px;
+  width: 240px;
+  bottom: 0;
+  overflow: auto;
+  height: 100%;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      margin: 0;
+      padding: 0;
+      border-color: rgba(0,0,0,.06);
+      color: rgba(0,0,0,.54);
+      box-sizing: border-box;
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 47px;
+      transition: all .3s;
+      padding: 0 16px;
+      position: relative;
+      cursor: pointer;
+      i {
+        vertical-align: middle;
+      }
+    }
+
+    li:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.docs-component-viewer-sidenav, .docs-component-viewer-sidenav.mat-sidenav-opened {
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}

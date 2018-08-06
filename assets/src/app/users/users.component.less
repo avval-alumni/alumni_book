@@ -1,0 +1,137 @@
+@import '../colors';
+
+.new {
+  border: 2px solid @blue;
+  .title {
+    background-color: @blue;
+    color: @white;
+
+    i {
+      font-size: 18px;
+    }
+    label {
+      line-height: 24px;
+      vertical-align: top;
+    }
+  }
+  .form {
+    padding: 5px;
+    i {
+      font-size: 18px;
+    }
+
+    .message {
+      padding: 10px;
+      color: @red;
+    }
+  }
+}
+
+ul.users {
+  list-style: none;
+  padding: 0px;
+
+  li.users-header {
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+
+    span {
+      line-height: 35px;
+    }
+
+    .avatar {
+      display: inline-block;
+      width: 60px;
+    }
+
+    span.first_name,
+    span.last_name,
+    span.email,
+    span.rights,
+    span.status {
+      flex: 1;
+      margin: auto;
+    }
+
+    span.actions {
+      width: 100px;
+    }
+  }
+
+  li.user {
+    padding: 10px;
+    background-color: @white;
+    display: flex;
+
+    .avatar {
+      display: inline-block;
+      width: 60px;
+      vertical-align: middle;
+      text-align: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      label.type {
+        color: @grey;
+        font-size: 0.8em;
+      }
+    }
+
+    span.first_name,
+    span.last_name,
+    span.email,
+    span.rights {
+      flex: 1;
+      margin: auto;
+    }
+
+    span.status {
+      flex: 1;
+      .state {
+        color: @white;
+        padding: 4px;
+        border-radius: 3px;
+      }
+
+      .state.enabled {
+        background-color: @green;
+      }
+
+      .state.pending {
+        background-color: @blue;
+      }
+    }
+
+    span.actions {
+      width: 100px;
+      span.linkedin,
+      span.github {
+        cursor: pointer;
+        img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+      
+    }
+  }
+
+  li.user.student {
+    border-bottom: 2px solid @blue;
+  }
+  li.user.alumni {
+    border-bottom: 2px solid @green;
+  }
+  li.user.professor {
+    border-bottom: 2px solid @blue;
+  }
+}
+
+.paginator {
+  margin-bottom: 80px;
+}

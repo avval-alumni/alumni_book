@@ -1,0 +1,45 @@
+
+.users {
+  list-style: none;
+
+  .users-header {
+    font-weight: bold;
+    display: flex;
+  }
+  .user {
+    display: flex;
+  }
+
+  .avatar {
+    display: inline-block;
+    width: 60px;
+    vertical-align: middle;
+    text-align: center;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+  .first_name,
+  .last_name,
+  .email {
+    flex: 1;
+    margin: auto;
+  }
+  .actions {
+    flex: 1;
+
+    .linkedin,
+    .github {
+      padding-right: 3px;
+      vertical-align: middle;
+      cursor: pointer;
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}

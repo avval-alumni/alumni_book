@@ -1,0 +1,68 @@
+<div class="container">
+  <main role="main">
+    <mat-toolbar class="mat-toolbar mat-primary mat-toolbar-multiple-rows"
+    [ngClass]="{logout: !loggedIn}">
+      <mat-toolbar-row class="mat-toolbar-row">
+        <button
+          mat-icon-button (click)="switchMenu()"
+          class="icon_menu"
+          *ngIf=loggedIn>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class=home>
+          <a class=logo routerLink='/'>
+            <img src="/bundles/assets/images/avval_logo_small.png" />
+          </a>
+          <a class=title routerLink='/'>
+            <span class=app_name>Alumni book</span>
+          </a>
+        </span>
+        <span class=spacer>
+        </span>
+        <span (click)="openRightPanel()"
+          *ngIf=loggedIn
+          class="user_settings">
+          <label *ngIf=myself>
+            {{myself.first_name}}&nbsp;
+            {{myself.last_name}}
+          </label>
+          <i class="material-icons">settings</i>
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="docs-component-viewer-sidenav-container mat-drawer-container mat-sidenav-container">
+      <mat-sidenav mode="side" opened="{{menu_opened}}"
+        class="docs-component-viewer-sidenav mat-drawer mat-sidenav ng-tns-c13-1 ng-trigger ng-trigger-transform mat-drawer-side ng-star-inserted">
+        <ul>
+          <a routerLink='/myself'>
+            <li class="ng-star-inserted">
+                Myself
+            </li>
+          </a>
+          <a routerLink='/users'>
+            <li class="ng-star-inserted">
+                Users
+            </li>
+          </a>
+        </ul>
+      </mat-sidenav>
+      <mat-sidenav-content
+        class="mat-drawer-content mat-sidenav-content ng-star-inserted"
+        [ngClass]="{loggedIn: loggedIn}"
+        >
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+      <mat-sidenav mode="side" position="end" opened="{{right_panel_opened}}"
+        class="docs-component-viewer-sidenav mat-drawer mat-sidenav ng-tns-c13-1 ng-trigger ng-trigger-transform mat-drawer-side ng-star-inserted">
+        <ul>
+          <li class="ng-star-inserted"
+            (click)="logout()">
+            <i class="material-icons">power_settings_new</i>
+            Logout
+          </li>
+        </ul>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </main>
+</div>

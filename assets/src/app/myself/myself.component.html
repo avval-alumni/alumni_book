@@ -1,0 +1,119 @@
+<div>
+  <h1>Myself</h1>
+
+  <div *ngIf="myself">
+    <span class="avatar">
+      <img src={{myself.avatar}} />
+    </span>
+    <div>
+      <mat-form-field class="search-text-input">
+        <input
+          matInput
+          type="text"
+          placeholder="First name"
+          name=firstname
+          [(ngModel)]="myself.first_name"
+          (ngModelChange)="updateUser({first_name: $event})"
+          >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="search-text-input">
+        <input
+          matInput
+          type="text"
+          placeholder="Last name"
+          name=lastname
+          [(ngModel)]="myself.last_name"
+          (ngModelChange)="updateUser({last_name: $event})"
+          >
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="search-text-input">
+        <input
+          matInput
+          type="text"
+          placeholder="Email"
+          name=email
+          [(ngModel)]="myself.email"
+          (ngModelChange)="updateUser({email: $event})"
+          >
+      </mat-form-field>
+    </div>
+
+    <div class=links>
+      <label class="title">
+        Links
+      </label>
+      <div class=extern_link>
+        <i class="material-icons link connected"
+          *ngIf="myself.linkedin_id">
+          link
+        </i>
+        <i class="material-icons link notconnected"
+          *ngIf="!myself.linkedin_id">
+          link_off
+        </i>
+        <img src="/bundles/assets/images/Linkedin.svg" />
+        <span>Linkedin</span>
+        <!-- <a href="/link/linkedin">
+          <button
+            mat-button
+            *ngIf="!myself.linkedin_id"
+            color="primary">
+            <mat-icon>chevron_right</mat-icon>
+            Connect
+          </button>
+        </a>
+        <button
+          mat-button
+          *ngIf="myself.linkedin_id"
+          (click)="disconnect_linkedin()"
+          color="primary">
+          <mat-icon>chevron_right</mat-icon>
+          Disconnect
+        </button> -->
+      </div>
+      <div class=extern_link>
+        <i class="material-icons link connected"
+          *ngIf="myself.github_id">
+          link
+        </i>
+        <i class="material-icons link notconnected"
+          *ngIf="!myself.github_id">
+          link_off
+        </i>
+        <img src="/bundles/assets/images/github.svg" />
+        <span>GitHub</span>
+        <!-- <button
+          mat-button
+          *ngIf="!myself.github_id"
+          (click)="connect_github()"
+          color="primary">
+          <mat-icon>chevron_right</mat-icon>
+          Connect
+        </button>
+        <button
+          mat-button
+          *ngIf="myself.github_id"
+          (click)="disconnect_github()"
+          color="primary">
+          <mat-icon>chevron_right</mat-icon>
+          Disconnect
+        </button> -->
+      </div>
+    </div>
+    <mat-radio-group
+      class="user-type"
+      [(ngModel)]="myself.type"
+      (ngModelChange)="updateUser({type: $event})">
+      <mat-radio-button
+        class="user-type"
+        *ngFor="let usertype of usertypes"
+        [value]="usertype.id">
+        {{usertype.label}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>

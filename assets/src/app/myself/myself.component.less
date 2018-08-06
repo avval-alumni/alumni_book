@@ -1,0 +1,62 @@
+@import '../colors';
+
+.avatar {
+  display: inline-block;
+  width: 60px;
+  vertical-align: middle;
+  text-align: center;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+mat-radio-button.user-type {
+  display: inline-block;
+  width: 90px;
+}
+
+
+.links {
+  background-color: @lightGrey;
+  padding: 15px;
+  margin-bottom: 20px;
+
+  label.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: @blue;
+  }
+
+  .extern_link {
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+
+  .link {
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+
+  .link.connected {
+    color: @green;
+  }
+
+  .link.notconnected {
+    color: @grey;
+  }
+
+  span {
+    display: inline-block;
+    width: 150px;
+  }
+
+  img {
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    padding-right: 5px;
+  }
+}

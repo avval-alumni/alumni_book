@@ -1,0 +1,65 @@
+<h1>
+  Users
+</h1>
+
+<ul *ngIf="users" class="users">
+  <li *ngIf="users.total == 0">No users found.</li>
+  <li class="users-header">
+    <span class="avatar">
+    </span>
+    <span class="first_name">
+      First Name
+    </span>
+    <span class="last_name">
+      Last Name
+    </span>
+    <span class="email">
+      Email
+    </span>
+    <span class="actions">
+    </span>
+  </li>
+  <li
+    *ngFor="let user of users.data"
+    class="user {{user.type}}"
+    >
+    <span class="avatar">
+      <img src={{user.avatar}} />
+      <label class=type>
+        {{user.type | userType}}
+      </label>
+    </span>
+    <span class="first_name">
+      {{user.first_name}}
+    </span>
+    <span class="last_name">
+      {{user.last_name}}
+    </span>
+    <span class="email">
+      {{user.email}}
+    </span>
+    <span class="actions">
+      <span
+        *ngIf="user.linkedin_id"
+        (click)="openLinkedinProfile(user.id)"
+        class=linkedin>
+        <img src="/bundles/assets/images/Linkedin.svg" />
+      </span>
+      <span
+        *ngIf="user.github_id"
+        (click)="openGithubProfile(user.id)"
+        class=github>
+        <img src="/bundles/assets/images/github.svg" />
+      </span>
+    </span>
+  </li>
+</ul>
+
+<mat-paginator
+  class="paginator"
+  showFirstLastButtons=true
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageIndex]="page"
+  (page)="pageEvent = eventGetUsers($event)">
+</mat-paginator>

@@ -1,0 +1,10 @@
+.DS_Store
+/_build
+/cover
+/config/dev.secret.exs
+/deps
+/assets/node_modules
+/priv/static
+erl_crash.dump
+*.ez
+*.beam
