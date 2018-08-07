@@ -11,8 +11,7 @@ config :alumni_book, AlumniBookWeb.Endpoint,
   root: Path.dirname(__DIR__),
   render_errors: [accepts: ~w(html json)],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  pubsub: [name: AlumniBook.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: AlumniBook.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -29,7 +28,7 @@ config :phauxth,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
 
 # Configure phoenix generators
 config :phoenix, :generators,
@@ -38,18 +37,20 @@ config :phoenix, :generators,
 
 config :ueberauth, Ueberauth,
   providers: [
-    facebook: { Ueberauth.Strategy.Facebook, [] },
-    github: { Ueberauth.Strategy.Github, [default_scope: "user"] },
-    google: { Ueberauth.Strategy.Google, [] },
-    identity: { Ueberauth.Strategy.Identity, [
-        callback_methods: ["POST"],
-        uid_field: :username,
-        nickname_field: :username,
-      ] },
+    facebook: {Ueberauth.Strategy.Facebook, []},
+    github: {Ueberauth.Strategy.Github, [default_scope: "user"]},
+    google: {Ueberauth.Strategy.Google, []},
+    identity:
+      {Ueberauth.Strategy.Identity,
+       [
+         callback_methods: ["POST"],
+         uid_field: :username,
+         nickname_field: :username
+       ]},
     linkedin: {Ueberauth.Strategy.LinkedIn, [default_scope: "r_basicprofile r_emailaddress"]},
     # linkedin: {Ueberauth.Strategy.LinkedIn, [default_scope: "r_basicprofile r_emailaddress rw_company_admin w_share"]},
-    slack: { Ueberauth.Strategy.Slack, [] },
-    twitter: { Ueberauth.Strategy.Twitter, []}
+    slack: {Ueberauth.Strategy.Slack, []},
+    twitter: {Ueberauth.Strategy.Twitter, []}
   ]
 
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,

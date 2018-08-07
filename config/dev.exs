@@ -39,7 +39,6 @@ config :logger, :console, format: "[$level] $message\n"
 config :alumni_book, AlumniBookWeb.Endpoint,
   secret_key_base: "VQyOE7QLAMr0qyhIR+4/NtEK9G8DU+mdESssX4ZO0j05mchaW1VzebD2dZ+r9xCS"
 
-
 # Set a higher stacktrace during development.
 # Do not configure such in production as keeping
 # and calculating stacktraces is usually expensive.

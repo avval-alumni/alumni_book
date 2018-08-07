@@ -2,15 +2,17 @@ defmodule AlumniBook.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :alumni_book,
-     version: "0.0.1",
-     elixir: "~> 1.3",
-     elixirc_paths: elixirc_paths(Mix.env),
-     compilers: [:phoenix] ++ Mix.compilers,
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     aliases: aliases(),
-     deps: deps()]
+    [
+      app: :alumni_book,
+      version: "0.0.1",
+      elixir: "~> 1.3",
+      elixirc_paths: elixirc_paths(Mix.env()),
+      compilers: [:phoenix] ++ Mix.compilers(),
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application.
@@ -43,7 +45,7 @@ defmodule AlumniBook.Mixfile do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
   #
@@ -71,8 +73,8 @@ defmodule AlumniBook.Mixfile do
       {:ueberauth_identity, "~> 0.2"},
       {:ueberauth_linkedin, "~> 0.3"},
       {:ueberauth_slack, "~> 0.4"},
-      {:ueberauth_twitter, "~> 0.2"},
-   ]
+      {:ueberauth_twitter, "~> 0.2"}
+    ]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
@@ -82,8 +84,10 @@ defmodule AlumniBook.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-     "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+    [
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+    ]
   end
 end

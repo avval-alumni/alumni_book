@@ -4,7 +4,7 @@ defmodule AlumniBookWeb.LinkController do
   """
 
   use AlumniBookWeb, :controller
-  plug Ueberauth
+  plug(Ueberauth)
 
   alias Ueberauth.Strategy.Helpers
 
@@ -19,8 +19,8 @@ defmodule AlumniBookWeb.LinkController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
-    IO.inspect params
-    IO.inspect auth
+    IO.inspect(params)
+    IO.inspect(auth)
     # case UserFromAuth.find_or_create(auth) do
     #   {:ok, user_changeset} ->
     #     {:ok, user} = AlumniBook.Accounts.find_or_create_user(user_changeset)

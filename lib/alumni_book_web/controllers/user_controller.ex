@@ -34,7 +34,7 @@ defmodule AlumniBookWeb.UserController do
   end
 
   def update(%Plug.Conn{assigns: %{current_user: _user}} = conn, params) do
-    IO.inspect params
+    IO.inspect(params)
     send_resp(conn, 403, "unable to update yourself")
   end
 

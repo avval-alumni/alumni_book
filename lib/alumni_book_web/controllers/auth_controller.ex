@@ -4,7 +4,7 @@ defmodule AlumniBookWeb.AuthController do
   """
 
   use AlumniBookWeb, :controller
-  plug Ueberauth
+  plug(Ueberauth)
 
   alias Ueberauth.Strategy.Helpers
 
@@ -26,7 +26,8 @@ defmodule AlumniBookWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
-    IO.inspect params
+    IO.inspect(params)
+
     case UserFromAuth.find_or_create(auth) do
       {:ok, user_changeset} ->
         {:ok, user} = AlumniBook.Accounts.find_or_create_user(user_changeset)
@@ -36,6 +37,7 @@ defmodule AlumniBookWeb.AuthController do
         |> put_flash(:info, "Successfully authenticated.")
         |> put_session(:current_user, user)
         |> redirect(to: "/confirm?token=" <> token)
+
       {:error, reason} ->
         conn
         |> put_flash(:error, reason)

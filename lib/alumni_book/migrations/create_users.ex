@@ -2,8 +2,8 @@ defmodule AlumniBook.Migration.CreateUsers do
   use Ecto.Migration
 
   def change do
-    UserTypeEnum.create_type
-    
+    UserTypeEnum.create_type()
+
     create table(:users) do
       add(:email, :string)
       add(:linkedin_id, :string)
@@ -18,9 +18,11 @@ defmodule AlumniBook.Migration.CreateUsers do
       timestamps()
     end
 
-    create(unique_index(:users, [
-      :linkedin_id,
-      :github_id
-    ]))
+    create(
+      unique_index(:users, [
+        :linkedin_id,
+        :github_id
+      ])
+    )
   end
 end

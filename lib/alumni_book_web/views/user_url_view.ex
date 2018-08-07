@@ -8,7 +8,7 @@ defmodule AlumniBookWeb.UserUrlView do
 
   def render("user_url.json", %{user_url: user_url}) do
     %{
-      url: user_url,
+      url: user_url
     }
   end
 end

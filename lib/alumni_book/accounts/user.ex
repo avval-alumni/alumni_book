@@ -18,7 +18,7 @@ defmodule AlumniBook.Accounts.User do
 
   def changeset(%User{} = user, attrs) do
     user
-    |> IO.inspect
+    |> IO.inspect()
     |> cast(attrs, [
       :email,
       :linkedin_id,
@@ -28,7 +28,7 @@ defmodule AlumniBook.Accounts.User do
       :first_name,
       :last_name,
       :avatar,
-      :type,
+      :type
     ])
     |> unique_oauth_account
   end
@@ -44,7 +44,7 @@ defmodule AlumniBook.Accounts.User do
       :first_name,
       :last_name,
       :avatar,
-      :type,
+      :type
     ])
     |> unique_oauth_account
   end

@@ -14,7 +14,8 @@ defmodule AlumniBookWeb.UserView do
   end
 
   def render("user.json", %{user: user}) do
-    IO.inspect user
+    IO.inspect(user)
+
     %{
       id: user.id,
       github_id: user.github_id,
@@ -23,7 +24,7 @@ defmodule AlumniBookWeb.UserView do
       last_name: user.last_name,
       email: user.email,
       avatar: user.avatar,
-      type: user.type,
+      type: user.type
     }
   end
 end
