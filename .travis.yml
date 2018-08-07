@@ -25,7 +25,6 @@ services:
 
 before_script:
   - psql -c 'create database ex_subtil_backend_test;' -U postgres
-  - mkdir priv/repo/migrations
 
 install:
   - mix local.hex --force
