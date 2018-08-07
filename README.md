@@ -2,7 +2,7 @@
 [![Build Status][travis-img]][travis] [![License][license-img]][license]
 
 [travis-img]: https://travis-ci.org/avval-alumni/alumni_book.svg?branch=master
-[travis]: https://travis-ci.org/avval-alumni/alumni_book.svg
+[travis]: https://travis-ci.org/avval-alumni/alumni_book
 [license-img]: http://img.shields.io/badge/license-MIT-brightgreen.svg
 [license]: http://opensource.org/licenses/MIT
 
