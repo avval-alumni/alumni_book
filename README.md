@@ -10,4 +10,4 @@
 
 ## License
 
-Please see [LICENSE](https://github.com/ueberauth/ueberauth_example/blob/master/LICENSE) for licensing details.
+Please see [LICENSE](https://github.com/avval-alumni/alumni_book/blob/master/LICENSE) for licensing details.
