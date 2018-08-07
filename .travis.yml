@@ -4,9 +4,28 @@ language: elixir
 elixir:
   - 1.6.0
   - 1.6.1
+  - 1.6.6
 otp_release:
-  - 19.3
   - 20.2
+  - 20.3
+  - 21.0
+
+matrix:
+  exclude:
+    - elixir: 1.6.0
+      otp_release: 21.0
+
+dist: trusty
+
+addons:
+  postgresql: "9.6"
+
+services:
+  - rabbitmq
+
+before_script:
+  - psql -c 'create database ex_subtil_backend_test;' -U postgres
+  - mkdir priv/repo/migrations
 
 install:
   - mix local.hex --force
