@@ -29,10 +29,26 @@ before_script:
   - psql -c 'create database ex_subtil_backend_test;' -U postgres
 
 install:
+  - export MIX_ENV=prod
   - mix local.hex --force
   - mix local.rebar --force
   - mix deps.get
+  - mix release.init
+  - mix release --env=prod
 
 scripts:
   - if [[ $(elixir --version) = *"1.6"* ]]; then mix format --check-formatted; fi
   - mix test
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - echo "$R_PI_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "`ssh-keyscan alumni.book.avval.fr`" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - scp -r $TRAVIS_BUILD_DIR/_build/prod/rel/alumni_book ${R_PI_PASSWORD}@alumni.book.avval.fr:/tmp/
+  on:
+    branch: master

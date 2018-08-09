@@ -22,11 +22,13 @@ defmodule AlumniBook.Mixfile do
     [
       mod: {AlumniBook, []},
       applications: [
-        :phoenix,
-        :phoenix_html,
         :cowboy,
+        :ecto_enum,
         :logger,
+        :parse_trans,
+        :phoenix,
         :phoenix_ecto,
+        :phoenix_html,
         :phauxth,
         :postgrex,
         :oauth,
@@ -54,6 +56,7 @@ defmodule AlumniBook.Mixfile do
     [
       {:cors_plug, "~> 1.5"},
       {:cowboy, "~> 1.0"},
+      {:distillery, "~> 2.0-pre"},
       {:dogma, ">= 0.0.0", only: [:dev, :test]},
       {:ecto_enum, "~> 1.1"},
       {:httpoison, "~> 1.2.0", override: true},
