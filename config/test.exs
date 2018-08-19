@@ -13,5 +13,7 @@ config :logger, level: :warn
 config :alumni_book, AlumniBook.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "alumni_book_test",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

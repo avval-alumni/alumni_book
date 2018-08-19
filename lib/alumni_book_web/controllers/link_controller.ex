@@ -18,7 +18,7 @@ defmodule AlumniBookWeb.LinkController do
     |> redirect(to: "/")
   end
 
-  def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
+  def callback(%{assigns: %{ueberauth_auth: auth}} = _conn, params) do
     IO.inspect(params)
     IO.inspect(auth)
     # case UserFromAuth.find_or_create(auth) do

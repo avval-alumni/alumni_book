@@ -43,7 +43,7 @@ defmodule AlumniBookWeb.UserUrlController do
         nil ->
           nil
 
-        id ->
+        _id ->
           "https://api.linkedin.com/v1/people/~?format=json"
           |> HTTPoison.get!(headers)
           |> Map.get(:body)
