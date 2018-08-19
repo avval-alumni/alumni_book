@@ -35,6 +35,7 @@ install:
 scripts:
   - if [[ $(elixir --version) = *"1.6.6"* ]]; then mix format --check-formatted; fi
   - MIX_ENV=test mix test
+  - openssl aes-256-cbc -K $encrypted_5d8ce8fda14a_key -iv $encrypted_5d8ce8fda14a_iv -in private_ssh_key.enc -out private_ssh_key -d
   - ssh-add private_ssh_key > /dev/null
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
@@ -42,7 +43,3 @@ scripts:
   - echo "`ssh-keyscan alumni.book.avval.fr`" > ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
   - scp -r $TRAVIS_BUILD_DIR/_build/prod/rel/alumni_book ${R_PI_PASSWORD}@alumni.book.avval.fr:/tmp/
-
-before_install:
-- openssl aes-256-cbc -K $encrypted_5d8ce8fda14a_key -iv $encrypted_5d8ce8fda14a_iv
-  -in private_ssh_key.enc -out private_ssh_key -d
