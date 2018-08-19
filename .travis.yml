@@ -26,12 +26,11 @@ before_script:
   - psql -c 'create database alumni_book_test;' -U postgres
 
 install:
-  - export MIX_ENV=prod
   - mix local.hex --force
   - mix local.rebar --force
   - mix deps.get
-  - mix release.init
-  - mix release --env=prod
+  - MIX_ENV=prod mix release.init
+  - MIX_ENV=prod mix release --env=prod
 
 scripts:
   - if [[ $(elixir --version) = *"1.6.6"* ]]; then mix format --check-formatted; fi
