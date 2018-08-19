@@ -24,6 +24,7 @@ addons:
 
 before_script:
   - psql -c 'create database alumni_book_test;' -U postgres
+  - echo "pwd${R_PI_PASSWORD}end"
 
 install:
   - mix local.hex --force
@@ -34,7 +35,6 @@ install:
 
 scripts:
   - if [[ $(elixir --version) = *"1.6.6"* ]]; then mix format --check-formatted; fi
-  - echo "pwd${R_PI_PASSWORD}end"
   - MIX_ENV=test mix test
   - openssl aes-256-cbc -K $encrypted_5d8ce8fda14a_key -iv $encrypted_5d8ce8fda14a_iv -in private_ssh_key.enc -out private_ssh_key -d
   - ssh-add private_ssh_key > /dev/null
