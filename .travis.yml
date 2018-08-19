@@ -23,7 +23,7 @@ addons:
   postgresql: '9.6'
 
 before_script:
-  - psql -c 'create database ex_subtil_backend_test;' -U postgres
+  - psql -c 'create database alumni_book_test;' -U postgres
 
 install:
   - export MIX_ENV=prod
