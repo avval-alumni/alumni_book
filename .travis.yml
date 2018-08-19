@@ -33,7 +33,7 @@ install:
   - MIX_ENV=prod mix release.init
   - MIX_ENV=prod mix release --env=prod
 
-scripts:
+script:
   - if [[ $(elixir --version) = *"1.6.6"* ]]; then mix format --check-formatted; fi
   - MIX_ENV=test mix test
   - openssl aes-256-cbc -K $encrypted_5d8ce8fda14a_key -iv $encrypted_5d8ce8fda14a_iv -in private_ssh_key.enc -out private_ssh_key -d
