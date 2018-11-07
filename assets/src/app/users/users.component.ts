@@ -78,6 +78,16 @@ export class UsersComponent {
     return params;
   }
 
+  openFacebookProfile(user_id: string) {
+    this.userUrlService.getFacebookUrl(user_id)
+    .subscribe(response => {
+      console.log(response)
+      if(response && response.url) {
+        window.open(response.url, "_blank");
+      }
+    });
+  }
+
   openLinkedinProfile(user_id: string) {
     this.userUrlService.getLinkedinUrl(user_id)
     .subscribe(response => {

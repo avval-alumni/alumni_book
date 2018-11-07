@@ -6,6 +6,8 @@ defmodule AlumniBook.Migration.CreateUsers do
 
     create table(:users) do
       add(:email, :string)
+      add(:facebook_id, :string)
+      add(:facebook_token, :binary)
       add(:linkedin_id, :string)
       add(:linkedin_token, :binary)
       add(:github_id, :string)
@@ -20,6 +22,7 @@ defmodule AlumniBook.Migration.CreateUsers do
 
     create(
       unique_index(:users, [
+        :facebook_id,
         :linkedin_id,
         :github_id
       ])

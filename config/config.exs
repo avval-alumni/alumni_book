@@ -37,7 +37,7 @@ config :phoenix, :generators,
 
 config :ueberauth, Ueberauth,
   providers: [
-    facebook: {Ueberauth.Strategy.Facebook, []},
+    facebook: {Ueberauth.Strategy.Facebook, [default_scope: "email,public_profile"]},
     github: {Ueberauth.Strategy.Github, [default_scope: "user"]},
     google: {Ueberauth.Strategy.Google, []},
     identity:
@@ -56,7 +56,8 @@ config :ueberauth, Ueberauth,
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
   client_id: System.get_env("FACEBOOK_APP_ID"),
   client_secret: System.get_env("FACEBOOK_APP_SECRET"),
-  redirect_uri: System.get_env("FACEBOOK_REDIRECT_URI")
+  redirect_uri: "https://localhost/auth/facebook/callback"
+  # redirect_uri: System.get_env("FACEBOOK_REDIRECT_URI")
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: "640da9fd50b87ea782d1",

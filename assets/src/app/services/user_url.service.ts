@@ -10,6 +10,14 @@ export class UserUrlService {
 
   constructor(private http: HttpClient) { }
 
+  getFacebookUrl(user_id: string): Observable<UserUrl> {
+    return this.http.get<UserUrl>("api/users/" + user_id + "/facebook_url")
+      .pipe(
+        tap(userPage => this.log('fetched UserUrl')),
+        catchError(this.handleError('getFacebookUrl', undefined))
+      );
+  }
+
   getGithubUrl(user_id: string): Observable<UserUrl> {
     return this.http.get<UserUrl>("api/users/" + user_id + "/github_url")
       .pipe(

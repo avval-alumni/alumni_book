@@ -26,8 +26,6 @@ defmodule AlumniBookWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
-    IO.inspect(params)
-
     case UserFromAuth.find_or_create(auth) do
       {:ok, user_changeset} ->
         {:ok, user} = AlumniBook.Accounts.find_or_create_user(user_changeset)
