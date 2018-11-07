@@ -56,6 +56,10 @@ export class MyselfComponent {
   }
 
   connect_github() {
+    this.userService.linkWithGithub()
+    .subscribe(response => {
+      window.location.replace(response.redirect_url)
+    });
   }
 
   disconnect_github() {

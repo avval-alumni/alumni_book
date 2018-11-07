@@ -48,6 +48,35 @@
       </label>
       <div class=extern_link>
         <i class="material-icons link connected"
+          *ngIf="myself.facebook_id">
+          link
+        </i>
+        <i class="material-icons link notconnected"
+          *ngIf="!myself.facebook_id">
+          link_off
+        </i>
+        <img src="/bundles/assets/images/facebook.svg" />
+        <span>Facebook</span>
+        <a href="/link/facebook">
+          <button
+            mat-button
+            *ngIf="!myself.facebook_id"
+            color="primary">
+            <mat-icon>chevron_right</mat-icon>
+            Connect
+          </button>
+        </a>
+        <button
+          mat-button
+          *ngIf="myself.facebook_id"
+          (click)="disconnect_facebook()"
+          color="primary">
+          <mat-icon>chevron_right</mat-icon>
+          Disconnect
+        </button>
+      </div>
+      <div class=extern_link>
+        <i class="material-icons link connected"
           *ngIf="myself.linkedin_id">
           link
         </i>
@@ -57,7 +86,7 @@
         </i>
         <img src="/bundles/assets/images/Linkedin.svg" />
         <span>Linkedin</span>
-        <!-- <a href="/link/linkedin">
+        <a href="/link/linkedin">
           <button
             mat-button
             *ngIf="!myself.linkedin_id"
@@ -73,7 +102,7 @@
           color="primary">
           <mat-icon>chevron_right</mat-icon>
           Disconnect
-        </button> -->
+        </button>
       </div>
       <div class=extern_link>
         <i class="material-icons link connected"
@@ -86,7 +115,7 @@
         </i>
         <img src="/bundles/assets/images/github.svg" />
         <span>GitHub</span>
-        <!-- <button
+        <button
           mat-button
           *ngIf="!myself.github_id"
           (click)="connect_github()"
@@ -101,7 +130,7 @@
           color="primary">
           <mat-icon>chevron_right</mat-icon>
           Disconnect
-        </button> -->
+        </button>
       </div>
     </div>
     <mat-radio-group
@@ -115,5 +144,8 @@
         {{usertype.label}}
       </mat-radio-button>
     </mat-radio-group>
+    <div *ngIf="myself.type == 'student'">
+      Student
+    </div>
   </div>
 </div>

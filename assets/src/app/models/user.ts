@@ -18,3 +18,7 @@ export class User {
   linkedin_id: string;
   rights: any;
 }
+
+export class Redirect {
+  redirect_url: string;
+}

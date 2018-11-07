@@ -40,6 +40,19 @@ defmodule UserFromAuth do
 
   defp force_string(value), do: value
 
+  defp basic_info(%{provider: :facebook} = auth) do
+    IO.inspect(auth)
+    %{
+      facebook_id: auth.uid,
+      facebook_token: get_token(auth),
+      name: name_from_auth(auth),
+      email: auth.info.email,
+      first_name: auth.info.first_name,
+      last_name: auth.info.last_name,
+      avatar: avatar_from_auth(auth)
+    }
+  end
+
   defp basic_info(%{provider: :linkedin} = auth) do
     %{
       linkedin_id: auth.uid,

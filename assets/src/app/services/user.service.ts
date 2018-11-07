@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import {UserPage} from '../models/page/user_page';
-import {User, Confirm} from '../models/user';
+import {User, Confirm, Redirect} from '../models/user';
 
 @Injectable()
 export class UserService {
@@ -40,6 +40,14 @@ export class UserService {
       .pipe(
         tap(userPage => this.log('fetched UserPage')),
         catchError(this.handleError('updateMyself', undefined))
+      );
+  }
+
+  linkWithGithub(): Observable<Redirect> {
+    return this.http.get<Redirect>("/api/link/github")
+      .pipe(
+        tap(userPage => this.log('fetched UserUrl')),
+        catchError(this.handleError('linkWithGithub', undefined))
       );
   }
 

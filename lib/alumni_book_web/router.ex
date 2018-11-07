@@ -27,14 +27,6 @@ defmodule AlumniBookWeb.Router do
     delete("/logout", AuthController, :delete)
   end
 
-  # scope "/link", AlumniBookWeb do
-  #   pipe_through [:browser]
-
-  #   get("/:provider", LinkController, :request)
-  #   get("/:provider/callback", LinkController, :callback)
-  #   post("/:provider/callback", LinkController, :callback)
-  # end
-
   scope "/api", AlumniBookWeb do
     pipe_through([:api])
 
@@ -42,11 +34,14 @@ defmodule AlumniBookWeb.Router do
     put("/myself", UserController, :update)
 
     resources("/users", UserController, except: [:new, :edit]) do
+      get("/facebook_url", UserUrlController, :get_facebook_url)
       get("/github_url", UserUrlController, :get_github_url)
       get("/linkedin_url", UserUrlController, :get_linkedin_url)
     end
 
-    # get("/link/:provider", LinkController, :request)
+    get("/link/:provider", LinkController, :request)
+    get("/link/:provider/callback", LinkController, :callback)
+    post("/link/:provider/callback", LinkController, :callback)
   end
 
   scope "/", AlumniBookWeb do

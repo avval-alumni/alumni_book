@@ -19,8 +19,12 @@ defmodule AlumniBookWeb.Authorize do
 
   # Plug to only allow authenticated users to access the resource.
   # See the user controller for an example.
-  def user_check(%Plug.Conn{assigns: %{current_user: nil}} = conn, _opts) do
-    error(conn, :unauthorized, 401)
+  def user_check(%Plug.Conn{assigns: %{current_user: nil}, query_params: query_params} = conn, module) do
+    case Map.get(conn.private.plug_session, "current_user") do
+      nil -> error(conn, :unauthorized, 401)
+      current_user ->
+        apply(AlumniBookWeb.LinkController, action_name(conn), [conn, query_params, current_user])
+    end
   end
 
   def user_check(conn, _opts), do: conn

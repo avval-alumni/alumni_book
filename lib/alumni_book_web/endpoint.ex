@@ -10,7 +10,13 @@ defmodule AlumniBookWeb.Endpoint do
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
 
-  plug(CORSPlug, origin: ["https://www.linkedin.com/uas/oauth2/authorization"])
+  plug(CORSPlug,
+    # origin: ~r/https:\/\/(www\.)?(linkedin|github).*\.com.*$/,
+    origin: [
+      "https://github.com/login/oauth/authorize"
+    ],
+    methods: ["OPTION", "GET"]
+  )
 
   plug(Plug.Static,
     at: "/",

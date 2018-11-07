@@ -14,10 +14,10 @@ defmodule AlumniBookWeb.UserView do
   end
 
   def render("user.json", %{user: user}) do
-    IO.inspect(user)
-
+    # IO.inspect(user)
     %{
       id: user.id,
+      facebook_id: user.facebook_id,
       github_id: user.github_id,
       linkedin_id: user.linkedin_id,
       first_name: user.first_name,

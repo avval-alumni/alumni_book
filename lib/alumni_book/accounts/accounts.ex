@@ -65,16 +65,23 @@ defmodule AlumniBook.Accounts do
   end
 
   def find_or_create_user(attrs) do
-    if Map.has_key?(attrs, :linkedin_id) do
-      case Repo.get_by(User, linkedin_id: attrs.linkedin_id) do
-        nil -> create_user(attrs)
-        user -> {:ok, user}
-      end
-    else
-      case Repo.get_by(User, github_id: attrs.github_id) do
-        nil -> create_user(attrs)
-        user -> {:ok, user}
-      end
+    cond do
+      Map.has_key?(attrs, :linkedin_id) ->
+        case Repo.get_by(User, linkedin_id: attrs.linkedin_id) do
+          nil -> create_user(attrs)
+          user -> {:ok, user}
+        end
+      Map.has_key?(attrs, :facebook_id) ->
+        case Repo.get_by(User, facebook_id: attrs.facebook_id) do
+          nil -> create_user(attrs)
+          user -> {:ok, user}
+        end
+      Map.has_key?(attrs, :github_id) ->
+        case Repo.get_by(User, github_id: attrs.github_id) do
+          nil -> create_user(attrs)
+          user -> {:ok, user}
+        end
+      true -> create_user(attrs)
     end
   end
 

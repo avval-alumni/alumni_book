@@ -40,6 +40,13 @@
     </span>
     <span class="actions">
       <span
+        *ngIf="user.facebook_id"
+        (click)="openFacebookProfile(user.id)"
+        class=linkedin>
+        <img src="/bundles/assets/images/facebook.svg" />
+      </span>
+
+      <span
         *ngIf="user.linkedin_id"
         (click)="openLinkedinProfile(user.id)"
         class=linkedin>
