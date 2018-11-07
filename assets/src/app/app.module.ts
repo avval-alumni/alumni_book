@@ -23,7 +23,9 @@ import {
   MatSidenavModule,
   MatSlideToggleModule,
   MatTableModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatButtonToggleModule,
+  MatChipsModule
   } from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -51,6 +53,9 @@ import {SocketModule}            from './socket.module';
 import {ConfirmComponent}        from './confirm/confirm.component';
 import {DashboardComponent}      from './dashboard/dashboard.component';
 import {LoginComponent}          from './login/login.component';
+import {HomeComponent}        from './home/home.component';
+import {TermsComponent}        from './terms/terms.component';
+import {SignupComponent}        from './signup/signup.component';
 import {MyselfComponent}         from './myself/myself.component';
 import {RightsComponent}         from './users/rights.component';
 import {UsersComponent}          from './users/users.component';
@@ -107,11 +112,16 @@ const SUBTIL_DATE_FORMATS = {
     MatStepperModule,
     MatTableModule,
     MatToolbarModule,
+    MatButtonToggleModule,
+    MatChipsModule,
     SocketModule,
     StorageServiceModule,
   ],
   declarations: [
     AppComponent,
+    HomeComponent,
+    TermsComponent,
+    SignupComponent,
     ConfirmComponent,
     DashboardComponent,
     MyselfComponent,
@@ -151,6 +161,12 @@ const SUBTIL_DATE_FORMATS = {
       useClass: ErrorInterceptor,
       multi: true
     },
+    // {
+    //   provide: MAT_CHIPS_DEFAULT_OPTIONS,
+    //   useValue: {
+    //     separatorKeyCodes: [ENTER, COMMA]
+    //   }
+    // },
     AuthService,
     CookieService,
     UserService,

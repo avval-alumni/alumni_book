@@ -1,0 +1,89 @@
+@import '../colors';
+
+.content {
+	text-align: top;
+	display: flex;
+	height: 100%;
+	padding: 0px;
+
+	.logo {
+		flex: 1;
+		box-shadow: 1px 1px 5px 0 @darkblue;
+		background-color: @darkblue;
+
+		.home {
+			width: 100%;
+			display: inline-block;
+			text-align: left;
+
+			.title {
+				text-decoration: none;
+				.subtil_logo {
+					height: 50px;
+					vertical-align: bottom;
+				}
+				.app_name {
+					font-weight: lighter;
+					font-size: 0.8em;
+					letter-spacing: 0.05rem;
+					color: @white;
+				}
+			}
+		}
+
+		.wrapper {
+			display: block;
+			margin: auto;
+			padding-top: 5px;
+			padding-bottom: 15px;
+			padding-top: 42%;
+
+			.powered {
+				color: @lightGrey;
+				text-align: left;
+				font-size: 0.8em;
+				padding-left: 24px;
+			}
+			label {
+				font-family: "Castorgate";
+				font-size: 5em;
+				color: @white;
+				vertical-align: middle;
+				display: inline-block;
+				width: 150px;
+				text-align: left;
+			}
+			img {
+				// width: 300px;
+				height: 300px;
+				vertical-align: middle;
+				display: inline-block;
+			}
+		}
+	}
+
+	.terms {
+		margin-top: 20px;
+		flex: 2;
+
+		.title {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.title2 {
+			text-align: left;
+			margin-left: 50px;
+		}
+
+		.text {
+			text-align: left;
+			margin-left: 80px;
+		}
+	}
+}
+
+.icon {
+	width: 50px;
+	height: 50px;
+}

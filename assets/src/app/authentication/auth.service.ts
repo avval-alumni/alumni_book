@@ -46,7 +46,7 @@ export class AuthService {
     this.userLoggedOutSource.next("");
     this.cookieService.delete('currentUser');
     this.rightPanelSwitchSource.next("close");
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/home"]);
   }
 
   setToken(token: string) {

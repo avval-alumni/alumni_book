@@ -1,0 +1,65 @@
+<div class=content>
+  <div class=logo>
+    <span class=wrapper>
+      <img src="/bundles/assets/images/avval_logo.png">
+    </span>
+  </div>
+
+  <div class=signup>
+    <div class=wrapper>
+      <div class=title>
+        <h1>
+          Choisir le mode d'identification
+        </h1>
+      </div>
+      <!-- <div> -->
+        <!-- <a href="/auth/linkedin"> -->
+      <!-- <mat-button-toggle-group vertical>
+          <mat-button-toggle> -->
+        <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+          <mat-chip>
+            <img class=icon src="/bundles/assets/images/Linkedin.svg" />
+            <mat-icon>chevron_right</mat-icon>
+            <label>
+              Sign up with Linkedin
+            </label>
+          <!-- </mat-button-toggle> -->
+        </mat-chip>
+        <!-- </a> -->
+      <!-- </div>
+      <div> -->
+        <!-- <a href="/auth/github"> -->
+          <!-- <mat-button-toggle> -->
+            <mat-chip>
+            <img class=icon src="/bundles/assets/images/github.svg" />
+            <mat-icon>chevron_right</mat-icon>
+            <label>
+              Sign up with GitHub
+            </label>
+          <!-- </mat-button-toggle> -->
+        </mat-chip>
+        <!-- </a> -->
+      <!-- </div> -->
+      <!-- </mat-button-toggle-group> -->
+    </mat-chip-list>
+      <div>
+        <label><input type="checkbox" [(ngModel)]="checked" required/>
+          En m’inscrivant, j’accepte que mes informations soient collectées et affichées sur l’annuaire en ligne. <br>
+          A tout moment, je peux demander leur retrait depuis la page Myself. <br>
+          Pour plus d’informations sur les données collectées et sur vos droits, veuillez consulter la Politique de confidentialité de l'annuaire.
+        </label>
+      </div>
+      <div class=continue>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!checked"
+          (click)="continue()">
+          <label>
+            Continuer
+          </label>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

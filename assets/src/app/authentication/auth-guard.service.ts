@@ -47,6 +47,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         return true;
       }
 
+      if(url.startsWith("/home")){
+        this.router.navigate(['/dashboard']);
+        return true;
+      }
+
       if(url.startsWith("/dashboard")) {
         return true;
       }
@@ -57,11 +62,15 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       return true;
     }
 
+    if(url.startsWith("/home")){
+      return true;
+    }
+
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
 
     // Navigate to the login page with extras
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
     return false;
   }
 }
