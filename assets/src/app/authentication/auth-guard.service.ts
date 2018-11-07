@@ -62,6 +62,14 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       return true;
     }
 
+    if(url.startsWith("/confirm")){
+      return true;
+    }
+
+    if(url.startsWith("/signup")){
+      return true;
+    }
+
     if(url.startsWith("/home")){
       return true;
     }

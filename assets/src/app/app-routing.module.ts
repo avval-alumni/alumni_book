@@ -31,7 +31,7 @@ const appRoutes: Routes = [
   {
     path: 'confirm',
     component: ConfirmComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard',

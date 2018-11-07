@@ -1,6 +1,6 @@
 @import '../colors';
 
-.content {
+.root {
 	text-align: center;
 	display: flex;
 	height: 100%;
@@ -61,41 +61,24 @@
 			}
 		}
 	}
-	.welcome {
+	.content {
 		margin-top: 20px;
-		padding-top: 18%;
+		padding-top: 15%;
 		flex: 2;
 
-		// display: block;
-		// width: 300px;
-		// margin: auto;
-		// padding-top: 5px;
-		// padding-bottom: 15px;
-		// padding-top: 42%;
+		.title {
+			text-align: center;
+			margin-bottom: 20px;
+		}
 
-		.wrapper {
-			display: block;
-			margin: auto;
-			// padding-top: 5px;
-			// padding-bottom: 15px;
-			// padding-top: 42%;
+		button {
+			padding: 5px;
+			margin: 5px;
+		}
 
-			.title {
-				// padding: 40px;
-				text-align: center;
-				margin-bottom: 20px;
-			}
-
-			button {
-				padding: 5px;
-				margin: 5px;
-				// cursor: pointer;
-			}
-
-			label {
-				display: inline-block;
-				width: 150px;
-			}
+		label {
+			display: inline-block;
+			width: 150px;
 		}
 	}
 }

@@ -13,15 +13,21 @@ import {FormControl, Validators} from '@angular/forms';
 })
 
 export class HomeComponent {
+  menu = "home"
+
   constructor(
     public router: Router
   ) {}
 
-  // signin() {
-    
-  // }
+  home() {
+    this.menu = "home"
+  }
 
-  // signup() {
+  register() {
+    this.menu = "register"
+  }
 
-  // }
+  connect() {
+    this.menu = "connect"
+  }
 }

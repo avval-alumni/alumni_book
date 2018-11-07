@@ -1,39 +1,104 @@
-<div class=content>
+<div class=root>
   <div class=logo>
     <span class=wrapper>
       <img src="/bundles/assets/images/avval_logo.png">
     </span>
   </div>
 
-  <div class=welcome>
-    <div class=wrapper>
-      <div class=title>
-        <h1>
-          Bienvenue sur l'annuaire de l'AV-Val
-        </h1>
-      </div>
+  <div class=content>
+    <div class=title>
+      <h1>
+        Bienvenue sur l'annuaire de l'AV-Val !
+      </h1>
+    </div>
+    <div *ngIf="menu=='home'">
+      <button
+        mat-raised-button
+        (click)="register()"
+        color="primary">
+        <label>
+          S'inscrire
+        </label>
+      </button>
+      <button
+        mat-raised-button
+        (click)="connect()"
+        color="primary">
+        <label>
+          Se connecter
+        </label>
+      </button>
+    </div>
+
+    <div *ngIf="menu=='register'">
       <div>
-        <a href="/signup">
+        <a href="/auth/linkedin">
           <button
-            mat-raised-button
+            mat-button
             color="primary">
+            <img class=icon src="/bundles/assets/images/Linkedin.svg" />
+            <mat-icon>chevron_right</mat-icon>
             <label>
-              S'inscrire
+              Register with Linkedin
             </label>
           </button>
         </a>
       </div>
       <div>
-        <a href="/login">
+        <a href="/auth/github">
           <button
-            mat-raised-button
+            mat-button
             color="primary">
+            <img class=icon src="/bundles/assets/images/github.svg" />
+            <mat-icon>chevron_right</mat-icon>
             <label>
-              S'identifier
+              Register with GitHub
             </label>
           </button>
         </a>
       </div>
+      <button
+        mat-button
+        color="primary"
+        (click)="home()">
+        <mat-icon>chevron_left</mat-icon>
+        Back
+      </button>
+    </div>
+    <div *ngIf="menu=='connect'">
+      <div>
+        <a href="/auth/linkedin">
+          <button
+            mat-button
+            color="primary">
+            <img class=icon src="/bundles/assets/images/Linkedin.svg" />
+            <mat-icon>chevron_right</mat-icon>
+            <label>
+              Login with Linkedin
+            </label>
+          </button>
+        </a>
+      </div>
+      <div>
+        <a href="/auth/github">
+          <button
+            mat-button
+            color="primary">
+            <img class=icon src="/bundles/assets/images/github.svg" />
+            <mat-icon>chevron_right</mat-icon>
+            <label>
+              Login with GitHub
+            </label>
+          </button>
+        </a>
+      </div>
+      <button
+        mat-button
+        color="primary"
+        (click)="home()">
+        <mat-icon>chevron_left</mat-icon>
+        Back
+      </button>
     </div>
   </div>
 </div>
